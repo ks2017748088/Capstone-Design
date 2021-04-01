@@ -21,13 +21,13 @@ public class LoginController {
     }
 
     // {GET/POST} /students/new
-    @GetMapping("/students/new")
-    public String showStudentForm(Model model) {
+    @GetMapping("/logins/new")
+    public String showLoginForm(Model model) {
         model.addAttribute("loginForm", new LoginForm());
-        return "students/studentForm";
+        return "logins/loginForm";
     }
 
-    @PostMapping("/students/new")
+    @PostMapping("/logins/new")
     public String createLogin(@Valid LoginForm loginForm, BindingResult result) {
         if (result.hasErrors()) {
             return "logins/loginForm";
