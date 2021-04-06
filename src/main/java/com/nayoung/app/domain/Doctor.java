@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class Lesson {
+public class Doctor {
     @Id
     @GeneratedValue
     private Long id;
@@ -17,10 +17,10 @@ public class Lesson {
     private int quota;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Course course;
+    private Board board;
 
-    public void setCourse(Course course) {
-        this.course = course;
-        this.course.getLessons().add(this);
+    public void setBoard(Board board) {
+        this.board = board;
+        this.board.getDoctors().add(this);
     }
 }

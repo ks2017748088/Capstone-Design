@@ -23,6 +23,6 @@ public class Login {
     private String address;
     private String email;
 
-    @OneToMany(mappedBy = "student")
-    private List<Course> courses = new ArrayList<>();
+    @OneToMany(mappedBy = "patient")
+    private List<Board> boards = new ArrayList<>();
 }

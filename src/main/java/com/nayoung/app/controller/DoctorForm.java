@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class LessonForm {
+public class DoctorForm {
     private Long id;
     private String name;
     private int quota;

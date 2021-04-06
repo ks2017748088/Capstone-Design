@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Student {
+public class Patient {
     @Id
     @GeneratedValue
     private Long id;
@@ -21,6 +21,6 @@ public class Student {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "student")
-    private List<Course> courses = new ArrayList<>();
+    @OneToMany(mappedBy = "patient")
+    private List<Board> boards = new ArrayList<>();
 }
