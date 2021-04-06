@@ -9,16 +9,16 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>학생명</th>
-                    <th>수업명</th>
+                    <th>환자명</th>
+                    <th>의사명</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="course : ${courses}">
-                <td th:text="${course.id}"></td>
-                <td th:text="${course.student.name}"></td>
-                <td th:text="${course.lessons[0].name}"></td>
+            <tr th:each="board : ${boards}">
+                <td th:text="${board.id}"></td>
+                <td th:text="${board.patient.name}"></td>
+                <td th:text="${board.doctors[0].name}"></td>
             </tr>
             </tbody>
         </table>

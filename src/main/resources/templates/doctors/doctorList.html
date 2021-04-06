@@ -9,16 +9,16 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>수업명</th>
-                <th>인원</th>
+                <th>의사명</th>
+                <th>전공</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="lesson : ${lessons}">
-                <td th:text="${lesson.id}"></td>
-                <td th:text="${lesson.name}"></td>
-                <td th:text="${lesson.quota}"></td>
+            <tr th:each="doctor : ${doctors}">
+                <td th:text="${doctor.id}"></td>
+                <td th:text="${doctor.name}"></td>
+                <td th:text="${doctor.quota}"></td>
                 <td>
                     <a href="#" class="btn btn-primary" role="button">수정</a>
                 </td>

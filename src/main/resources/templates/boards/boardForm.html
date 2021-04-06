@@ -4,21 +4,21 @@
 <body>
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
-    <form role="form" action="/course" method="post">
+    <form role="form" action="/board" method="post">
         <div class="form-group">
-            <label for="student">학생</label>
-            <select name="studentId" id="student" class="form-control">
-                <option value="">학생 선택</option>
-                <option th:each="student : ${students}"
-                        th:value="${student.id}" th:text="${student.name}"/>
+            <label for="patient">환자</label>
+            <select name="patientId" id="patient" class="form-control">
+                <option value="">환자 선택</option>
+                <option th:each="patient : ${patients}"
+                        th:value="${patient.id}" th:text="${patient.name}"/>
             </select>
         </div>
         <div class="form-group">
-            <label for="lesson">수업</label>
-            <select name="lessonId" id="lesson" class="form-control">
-                <option value="">수업 선택</option>
-                <option th:each="lesson : ${lessons}"
-                        th:value="${lesson.id}" th:text="${lesson.name}"/>
+            <label for="doctor">의사</label>
+            <select name="doctorId" id="doctor" class="form-control">
+                <option value="">의사 선택</option>
+                <option th:each="doctor : ${doctors}"
+                        th:value="${doctor.id}" th:text="${doctor.name}"/>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
