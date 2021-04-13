@@ -35,6 +35,7 @@ public class LoginController {
 
         Login login = new Login();
         login.setName(loginForm.getName());
+        login.setPwd(loginForm.getPwd());
         login.setNumber(loginForm.getNumber());
         login.setAddress(loginForm.getAddress());
         login.setEmail(loginForm.getEmail());

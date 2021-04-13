@@ -1,9 +1,15 @@
 package com.nayoung.app.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,13 +20,17 @@ public class Doctor {
     private Long id;
 
     private String name;
-    private int quota;
+    private String major;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Board board;
+    @OneToMany(mappedBy = "doctor")
+    private List<Board> boards = new ArrayList<>();
 
-    public void setBoard(Board board) {
-        this.board = board;
-        this.board.getDoctors().add(this);
+    public void Board() {
+    }
+
+    @Builder
+    public void Board(String name, String major) {
+        this.name = name;
+        this.major = major;
     }
 }

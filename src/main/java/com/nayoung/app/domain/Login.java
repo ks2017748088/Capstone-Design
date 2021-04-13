@@ -19,6 +19,7 @@ public class Login {
     private Long id;
 
     private String name;
+    private String pwd;
     private String number;
     private String address;
     private String email;

@@ -1,5 +1,6 @@
 package com.nayoung.app.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,8 +20,24 @@ public class Patient {
     private Long id;
 
     private String name;
+    private String number;
+    private String pwd;
+    private String address;
     private String email;
+
 
     @OneToMany(mappedBy = "patient")
     private List<Board> boards = new ArrayList<>();
+
+    public Patient() {
+    }
+
+    @Builder
+    public Patient(String name, String number, String pwd, String address, String email) {
+        this.name = name;
+        this.number = number;
+        this.pwd = pwd;
+        this.address = address;
+        this.email = email;
+    }
 }
