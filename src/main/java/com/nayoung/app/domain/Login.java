@@ -24,6 +24,6 @@ public class Login {
     private String address;
     private String email;
 
-    @OneToMany(mappedBy = "patient")
-    private List<Board> boards = new ArrayList<>();
+//    @OneToMany(mappedBy = "patient")
+//    private List<Board> boards = new ArrayList<>();
 }

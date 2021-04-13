@@ -22,15 +22,15 @@ public class Doctor {
     private String name;
     private String major;
 
-    @OneToMany(mappedBy = "doctor")
-    private List<Board> boards = new ArrayList<>();
-
-    public void Board() {
-    }
-
-    @Builder
-    public void Board(String name, String major) {
-        this.name = name;
-        this.major = major;
-    }
+//    @OneToMany(mappedBy = "doctor")
+//    private List<Board> boards = new ArrayList<>();
+//
+//    public void Board() {
+//    }
+//
+//    @Builder
+//    public void Board(String name, String major) {
+//        this.name = name;
+//        this.major = major;
+//    }
 }
