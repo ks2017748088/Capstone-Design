@@ -4,26 +4,19 @@
 <body>
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
-    <form role="form" action="/board" method="post">
+    <form th:action="@{/boards/new}" th:object="${boardForm}" method="post">
         <div class="form-group">
-            <label for="patient">환자</label>
-            <select name="patientId" id="patient" class="form-control">
-                <option value="">환자 선택</option>
-                <option th:each="patient : ${patients}"
-                        th:value="${patient.id}" th:text="${patient.name}"/>
-            </select>
-        </div>
+            <label th:for="question">질문</label>
+            <input type="text" th:field="*{question}" class="form-control"
+                   placeholder="질문을 입력하세요"></div>
         <div class="form-group">
-            <label for="doctor">의사</label>
-            <select name="doctorId" id="doctor" class="form-control">
-                <option value="">의사 선택</option>
-                <option th:each="doctor : ${doctors}"
-                        th:value="${doctor.id}" th:text="${doctor.name}"/>
-            </select>
-        </div>
+            <label th:for="answer">답변</label>
+            <input type="text" th:field="*{answer}" class="form-control"
+                   placeholder="답변을 입력하세요"></div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <br/>
     <div th:replace="fragments/footer :: footer"/>
-</div> <!-- /container --> </body>
+</div> <!-- /container -->
+</body>
 </html>

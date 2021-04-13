@@ -18,10 +18,7 @@
             <tr th:each="doctor : ${doctors}">
                 <td th:text="${doctor.id}"></td>
                 <td th:text="${doctor.name}"></td>
-                <td th:text="${doctor.quota}"></td>
-                <td>
-                    <a href="#" class="btn btn-primary" role="button">수정</a>
-                </td>
+                <td th:text="${doctor.major}"></td>
             </tr>
             </tbody>
         </table>

@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header"/>
 <body>
-
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
+    <div>
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>환자명</th>
-                    <th>의사명</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>질문</th>
+                <th>답변</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
             <tr th:each="board : ${boards}">
                 <td th:text="${board.id}"></td>
-                <td th:text="${board.patient.name}"></td>
-                <td th:text="${board.doctors[0].name}"></td>
+                <td th:text="${board.question}"></td>
+                <td th:text="${board.answer}"></td>
             </tr>
             </tbody>
         </table>

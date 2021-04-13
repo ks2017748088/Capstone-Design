@@ -8,5 +8,5 @@ import lombok.Setter;
 public class DoctorForm {
     private Long id;
     private String name;
-    private int quota;
+    private String major;
 }

@@ -4,8 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.print.Doc;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -19,23 +20,23 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY)
     private Patient patient;
 
-    @OneToMany(mappedBy = "board")
-    private List<Doctor> doctors = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Doctor doctor;
 
     public void setPatient(Patient patient) {
         this.patient = patient;
         this.patient.getBoards().add(this);
     }
 
-    public void addDoctor(Doctor doctor) {
-        this.doctors.add(doctor);
-        doctor.setBoard(this);
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+        this.doctor.getBoards().add(this);
     }
 
-    public static Board createCourse(Patient patient, Doctor doctor) {
+    public static Board createBoard(Patient patient, Doctor... doctors) {
         Board board = new Board();
         board.setPatient(patient);
-        board.addDoctor(doctor);
+        Arrays.stream(doctors).forEach(board::setDoctor);
         return board;
     }
 }
