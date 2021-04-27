@@ -30,8 +30,7 @@ public class TrainerController {
         trainer.setName(form.getName());
         trainer.setDate(form.getDate());
         trainer.setSex(form.getSex());
-        trainer.setDisease(form.getDisease());
-        trainer.setPrescription(form.getPrescription());
+        trainer.setPeriod(form.getPeriod());
         trainerRepository.save(trainer);
         return "redirect:/trainers";
     }

@@ -11,7 +11,6 @@ public class TrainerForm {
     private String name;
     private String date;
     private String sex;
-    private String disease;
-    private String prescription;
+    private String period;
 
 }

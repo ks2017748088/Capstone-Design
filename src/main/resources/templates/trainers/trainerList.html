@@ -9,12 +9,10 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>환자명</th>
+                <th>회원명</th>
                 <th>등록일</th>
                 <th>성별</th>
-                <th>병명</th>
-                <th>처방</th>
-
+                <th>기간</th>
                 <th></th>
             </tr>
             </thead>
@@ -24,8 +22,7 @@
                 <td th:text="${trainer.name}"></td>
                 <td th:text="${trainer.date}"></td>
                 <td th:text="${trainer.sex}"></td>
-                <td th:text="${trainer.disease}"></td>
-                <td th:text="${trainer.prescription}"></td>
+                <td th:text="${trainer.period}"></td>
             </tr>
             </tbody>
         </table>
