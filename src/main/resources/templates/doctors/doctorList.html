@@ -9,8 +9,12 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>의사명</th>
-                <th>전공</th>
+                <th>환자명</th>
+                <th>등록일</th>
+                <th>성별</th>
+                <th>병명</th>
+                <th>처방</th>
+
                 <th></th>
             </tr>
             </thead>
@@ -18,7 +22,10 @@
             <tr th:each="doctor : ${doctors}">
                 <td th:text="${doctor.id}"></td>
                 <td th:text="${doctor.name}"></td>
-                <td th:text="${doctor.major}"></td>
+                <td th:text="${doctor.date}"></td>
+                <td th:text="${doctor.sex}"></td>
+                <td th:text="${doctor.disease}"></td>
+                <td th:text="${doctor.prescription}"></td>
             </tr>
             </tbody>
         </table>

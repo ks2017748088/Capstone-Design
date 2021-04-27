@@ -9,5 +9,9 @@ public class DoctorForm {
     private Long id;
 
     private String name;
-    private String major;
+    private String date;
+    private String sex;
+    private String disease;
+    private String prescription;
+
 }

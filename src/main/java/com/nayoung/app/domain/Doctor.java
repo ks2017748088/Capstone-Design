@@ -20,7 +20,11 @@ public class Doctor {
     private Long id;
 
     private String name;
-    private String major;
+    private String date;
+    private String sex;
+    private String disease;
+    private String prescription;
+
 
 //    @OneToMany(mappedBy = "doctor")
 //    private List<Board> boards = new ArrayList<>();
