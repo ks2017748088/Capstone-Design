@@ -1,7 +1,7 @@
 package com.nayoung.app.controller;
 
-import com.nayoung.app.domain.Doctor;
-import com.nayoung.app.repository.DoctorRepository;
+import com.nayoung.app.domain.Trainer;
+import com.nayoung.app.repository.TrainerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,37 +10,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class DoctorController {
+public class TrainerController {
 
-    private final DoctorRepository doctorRepository;
+    private final TrainerRepository trainerRepository;
 
-    public DoctorController(DoctorRepository doctorRepository) {
-        this.doctorRepository = doctorRepository;
+    public TrainerController(TrainerRepository trainerRepository) {
+        this.trainerRepository = trainerRepository;
     }
 
-    @GetMapping(value = "/doctors/new")
+    @GetMapping(value = "/trainers/new")
     public String createForm(Model model) {
-        model.addAttribute("doctorForm", new DoctorForm());
-        return "doctors/doctorForm";
+        model.addAttribute("trainerForm", new TrainerForm());
+        return "trainers/trainerForm";
     }
 
-    @PostMapping(value = "/doctors/new")
-    public String create(DoctorForm form) {
-        Doctor doctor = new Doctor();
-        doctor.setName(form.getName());
-        doctor.setDate(form.getDate());
-        doctor.setSex(form.getSex());
-        doctor.setDisease(form.getDisease());
-        doctor.setPrescription(form.getPrescription());
-        doctorRepository.save(doctor);
-        return "redirect:/doctors";
+    @PostMapping(value = "/trainers/new")
+    public String create(TrainerForm form) {
+        Trainer trainer = new Trainer();
+        trainer.setName(form.getName());
+        trainer.setDate(form.getDate());
+        trainer.setSex(form.getSex());
+        trainer.setDisease(form.getDisease());
+        trainer.setPrescription(form.getPrescription());
+        trainerRepository.save(trainer);
+        return "redirect:/trainers";
     }
 
-    @GetMapping(value = "/doctors")
+    @GetMapping(value = "/trainers")
     public String list(Model model) {
-        List<Doctor> doctors = doctorRepository.findAll();
-        model.addAttribute("doctors", doctors);
-        return "doctors/doctorList";
+        List<Trainer> trainers = trainerRepository.findAll();
+        model.addAttribute("trainers", trainers);
+        return "trainers/trainerList";
     }
 //    @GetMapping("/doctors/update/{id}")
 //    public String showUpdateForm(@PathVariable("id") Long id, Model model){

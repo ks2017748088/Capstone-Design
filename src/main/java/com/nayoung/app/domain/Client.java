@@ -14,27 +14,30 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Doctor {
+public class Client {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private String date;
-    private String sex;
-    private String disease;
-    private String prescription;
+    private String number;
+    private String pwd;
+    private String address;
+    private String email;
 
 
-//    @OneToMany(mappedBy = "doctor")
+//    @OneToMany(mappedBy = "patient")
 //    private List<Board> boards = new ArrayList<>();
 //
-//    public void Board() {
+//    public Patient() {
 //    }
 //
 //    @Builder
-//    public void Board(String name, String major) {
+//    public Patient(String name, String number, String pwd, String address, String email) {
 //        this.name = name;
-//        this.major = major;
+//        this.number = number;
+//        this.pwd = pwd;
+//        this.address = address;
+//        this.email = email;
 //    }
 }

@@ -19,13 +19,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="doctor : ${doctors}">
-                <td th:text="${doctor.id}"></td>
-                <td th:text="${doctor.name}"></td>
-                <td th:text="${doctor.date}"></td>
-                <td th:text="${doctor.sex}"></td>
-                <td th:text="${doctor.disease}"></td>
-                <td th:text="${doctor.prescription}"></td>
+            <tr th:each="trainer : ${trainers}">
+                <td th:text="${trainer.id}"></td>
+                <td th:text="${trainer.name}"></td>
+                <td th:text="${trainer.date}"></td>
+                <td th:text="${trainer.sex}"></td>
+                <td th:text="${trainer.disease}"></td>
+                <td th:text="${trainer.prescription}"></td>
             </tr>
             </tbody>
         </table>

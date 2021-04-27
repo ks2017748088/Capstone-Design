@@ -1,52 +1,51 @@
 package com.nayoung.app.controller;
 
-import com.nayoung.app.domain.Patient;
-import com.nayoung.app.repository.PatientRepository;
+import com.nayoung.app.domain.Client;
+import com.nayoung.app.repository.ClientRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class PatientController {
+public class ClientController {
 
-    private final PatientRepository patientRepository;
+    private final ClientRepository clientRepository;
 
-    public PatientController(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
+    public ClientController(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
     }
 
-    @GetMapping("/patients/new")
-    public String showPatientForm(Model model) {
-        model.addAttribute("patientForm", new PatientForm());
-        return "patients/patientForm";
+    @GetMapping("/clients/new")
+    public String showClientForm(Model model) {
+        model.addAttribute("clientForm", new ClientForm());
+        return "clients/clientForm";
     }
 
-    @PostMapping("/patients/new")
-    public String createPatient(@Valid PatientForm patientForm, BindingResult result) {
+    @PostMapping("/clients/new")
+    public String createClient(@Valid ClientForm clientForm, BindingResult result) {
         if (result.hasErrors()) {
-            return "patients/patientForm";
+            return "clients/clientForm";
         }
-        Patient patient = new Patient();
-        patient.setName(patientForm.getName());
-        patient.setNumber(patientForm.getNumber());
-        patient.setPwd(patientForm.getPwd());
-        patient.setAddress(patientForm.getAddress());
-        patient.setEmail(patientForm.getEmail());
-        patientRepository.save(patient);
-        return "redirect:/patients";
+        Client client = new Client();
+        client.setName(clientForm.getName());
+        client.setNumber(clientForm.getNumber());
+        client.setPwd(clientForm.getPwd());
+        client.setAddress(clientForm.getAddress());
+        client.setEmail(clientForm.getEmail());
+        clientRepository.save(client);
+        return "redirect:/clients";
     }
 
-    @GetMapping("/patients")
+    @GetMapping("/clients")
     public String list(Model model) {
-        List<Patient> patients = patientRepository.findAll();
-        model.addAttribute("patients", patients);
-        return "patients/patientList";
+        List<Client> clients = clientRepository.findAll();
+        model.addAttribute("clients", clients);
+        return "clients/clientList";
     }
 
 //    @GetMapping("/patients/update/{id}")
