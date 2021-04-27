@@ -28,7 +28,10 @@ public class DoctorController {
     public String create(DoctorForm form) {
         Doctor doctor = new Doctor();
         doctor.setName(form.getName());
-        doctor.setMajor(form.getMajor());
+        doctor.setDate(form.getDate());
+        doctor.setSex(form.getSex());
+        doctor.setDisease(form.getDisease());
+        doctor.setPrescription(form.getPrescription());
         doctorRepository.save(doctor);
         return "redirect:/doctors";
     }
