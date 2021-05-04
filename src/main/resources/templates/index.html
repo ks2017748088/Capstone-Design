@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:replace="fragments/header :: header">
     <title>헬스장 회원 관리 페이지</title>
@@ -14,9 +15,9 @@
         </ul>
     </div>
     <div class="jumbotron"><h1>헬스장 회원 관리 페이지</h1>
-        <p>
-            <a class="btn btn-lg btn-info" href="/logins/new">회원가입</a>
-            <a class="btn btn-lg btn-info" href="/logins">로그인</a></p>
+        <p><a class="btn btn-lg btn-info" th:href="@{/loginUser}">회원가입</a>
+        <p sec:authorize="isAnonymous()"><a class="btn btn-lg btn-info" th:href="@{/login}">로그인</a></p>
+        <p sec:authorize="isAuthenticated()"><a class="btn btn-lg btn-info" th:href="@{/logout}">로그아웃</a></p>
     </div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
