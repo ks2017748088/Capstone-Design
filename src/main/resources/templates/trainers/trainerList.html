@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header"/>
 <body>
+
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
     <div>
@@ -9,11 +10,9 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>회원명</th>
+                <th>이름</th>
                 <th>등록일</th>
-                <th>성별</th>
                 <th>기간</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +20,6 @@
                 <td th:text="${trainer.id}"></td>
                 <td th:text="${trainer.name}"></td>
                 <td th:text="${trainer.date}"></td>
-                <td th:text="${trainer.sex}"></td>
                 <td th:text="${trainer.period}"></td>
             </tr>
             </tbody>
