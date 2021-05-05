@@ -13,16 +13,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Login {
+public class Reserve {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private String pwd;
-    private String number;
-    private String address;
-    private String email;
+    private String date;
+    private String time;
 
 //    @OneToMany(mappedBy = "patient")
 //    private List<Board> boards = new ArrayList<>();
