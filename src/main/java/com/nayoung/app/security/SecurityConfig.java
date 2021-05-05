@@ -48,15 +48,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .httpBasic().disable() //rest API만을 고려. 기본설정x.
+                .csrf().disable() // csrf보안 토큰 disable처리
                 .authorizeRequests()
-                .antMatchers("/","/loginUser","/menu","/logins/*","/boards/*","/fragments/*","/trainers/*","/trainers","/boards","/logins","/reserves","/reserves/*").permitAll()
+                .antMatchers("/","/loginUser","/menu").permitAll()
+                .antMatchers("/logins/**").permitAll()
+                .antMatchers("/boards/**").access("hasRole('USER') or hasRole('MANAGER') or hasRole('ADMIN')")
+                .antMatchers("/trainers/**").access("hasRole('MANAGER') or hasRole('ADMIN')")
+                .antMatchers("/reserves/**").access("hasRole('USER') or hasRole('ADMIN')")
+                .antMatchers("/fragments/**").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/manager").hasRole("MANAGER")
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
+                .and().headers().frameOptions().disable()
                 .and()
                 .formLogin();
     }
-
-
 }
