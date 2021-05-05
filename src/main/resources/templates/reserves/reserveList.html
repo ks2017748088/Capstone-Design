@@ -10,20 +10,16 @@
             <tr>
                 <th>#</th>
                 <th>이름</th>
-                <th>주민번호</th>
-                <th>비밀번호</th>
-                <th>주소</th>
-                <th>이메일</th>
+                <th>날짜</th>
+                <th>시간</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="login : ${logins}">
-                <td th:text="${login.id}"></td>
-                <td th:text="${login.name}"></td>
-                <td th:text="${login.number}"></td>
-                <td th:text="${login.pwd}"></td>
-                <td th:text="${login.address}"></td>
-                <td th:text="${login.email}"></td>
+            <tr th:each="reserve : ${reserves}">
+                <td th:text="${reserve.id}"></td>
+                <td th:text="${reserve.name}"></td>
+                <td th:text="${reserve.date}"></td>
+                <td th:text="${reserve.time}"></td>
             </tr>
             </tbody>
         </table>

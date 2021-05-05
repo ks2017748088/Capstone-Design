@@ -16,7 +16,7 @@
     </div>
     <div class="jumbotron"><h1>헬스장 회원 관리 페이지</h1>
         <p><a class="btn btn-lg btn-info" th:href="@{/loginUser}">회원가입</a>
-        <p sec:authorize="isAnonymous()"><a class="btn btn-lg btn-info" th:href="@{/login}">로그인</a></p>
+        <p sec:authorize="isAnonymous()"><a class="btn btn-lg btn-info" th:href="@{/reserve}">로그인</a></p>
         <p sec:authorize="isAuthenticated()"><a class="btn btn-lg btn-info" th:href="@{/logout}">로그아웃</a></p>
     </div>
 </div>
