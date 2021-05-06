@@ -19,13 +19,13 @@ public class UserController {
     @GetMapping("/loginUser")
     public String createUserForm(Model model){
         model.addAttribute("userForm",new AccountForm());
-        return "/logins/register";
+        return "logins/register";
     }
 
     @PostMapping("/loginUser")
     public String createUser(@Valid AccountForm form, BindingResult result){
         if(result.hasErrors()){
-            return "/logins/register";
+            return "logins/register";
         }
         accountService.createUser(form);
 
