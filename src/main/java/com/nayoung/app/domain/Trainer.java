@@ -24,18 +24,16 @@ public class Trainer {
     private String period;
 
 
-//    @OneToMany(mappedBy = "patient")
-//    private List<Board> boards = new ArrayList<>();
-//
-//    public Patient() {
-//    }
-//
-//    @Builder
-//    public Patient(String name, String number, String pwd, String address, String email) {
-//        this.name = name;
-//        this.number = number;
-//        this.pwd = pwd;
-//        this.address = address;
-//        this.email = email;
-//    }
+    @OneToMany(mappedBy = "trainer")
+    private List<Board> boards = new ArrayList<>();
+
+    public Trainer() {
+    }
+
+    @Builder
+    public Trainer(String name, String date, String period) {
+        this.name = name;
+        this.date = date;
+        this.period = period;
+    }
 }
