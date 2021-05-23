@@ -1,16 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header"/>
-<style>
-    .fieldError {
-        border-color: #bd2130;
-    }
-</style>
 <body>
-
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
-    <form role="form" action="/reserves/new" th:object="${reserveForm}"
+    <form role="form" th:action="@{/reserves/update/{id}(id=${reserves.id})}" th:object="${reserves}"
           method="post">
         <div class="form-group">
             <label th:for="name">이름</label>

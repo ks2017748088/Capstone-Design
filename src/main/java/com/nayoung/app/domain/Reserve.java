@@ -19,6 +19,7 @@ public class Reserve {
     private Long id;
 
     private String name;
+    private String period;
     private String date;
     private String time;
 

@@ -20,8 +20,8 @@ public class Trainer {
     private Long id;
 
     private String name;
-    private String date;
-    private String period;
+    private String field;
+    private String time;
 
 
     @OneToMany(mappedBy = "trainer")
@@ -31,9 +31,9 @@ public class Trainer {
     }
 
     @Builder
-    public Trainer(String name, String date, String period) {
+    public Trainer(String name, String field, String time) {
         this.name = name;
-        this.date = date;
-        this.period = period;
+        this.field = field;
+        this.time = time;
     }
 }

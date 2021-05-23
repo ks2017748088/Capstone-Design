@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/homeButton :: homeButton"/>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>생년월일</th>
+                <th>성별</th>
+                <th>전화번호</th>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이메일</th>
+                <th>권한</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="loginUser : ${loginUsers}">
+                <td th:text="${loginUser.id}"></td>
+                <td th:text="${loginUser.username}"></td>
+                <td th:text="${loginUser.date}"></td>
+                <td th:text="${loginUser.sex}"></td>
+                <td th:text="${loginUser.phone}"></td>
+                <td th:text="${loginUser.userid}"></td>
+                <td th:text="${loginUser.password}"></td>
+                <td th:text="${loginUser.email}"></td>
+                <td th:text="${loginUser.role}"></td>
+                <td>
+                    <a th:href="@{/loginUsers/update/{id}(id=${login.id})}" class="btn btn-primary" role="button">수정</a>
+                </td>
+                <td>
+                    <a th:href="@{/loginUsers/delete/{id}(id=${login.id})}" class="btn btn-primary" role="button">삭제</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>

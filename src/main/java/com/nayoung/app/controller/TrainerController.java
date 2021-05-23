@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -33,8 +34,8 @@ public class TrainerController {
         }
         Trainer trainer = new Trainer();
         trainer.setName(trainerForm.getName());
-        trainer.setDate(trainerForm.getDate());
-        trainer.setPeriod(trainerForm.getPeriod());
+        trainer.setField(trainerForm.getField());
+        trainer.setTime(trainerForm.getTime());
         trainerRepository.save(trainer);
         return "redirect:/trainers";
     }
@@ -46,24 +47,24 @@ public class TrainerController {
         return "trainers/trainerList";
     }
 
-//    @GetMapping("/patients/update/{id}")
-//    public String showUpdateForm(@PathVariable("id") Long id, Model model){
-//        Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid patient Id:" + id));
-//        model.addAttribute("patient", patient);
-//        return "patients/patientUpdate";
-//    }
-//
-//    @PostMapping("/patients/update/{id}")
-//    public String updatePatient(Patient patient){
-//        patientRepository.save(patient);
-//        return "redirect:/patients";
-//    }
-//
-//    @GetMapping("/patients/delete/{id}")
-//    public String deletePatient(@PathVariable("id") Long id, Model model) {
-//        Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid patient Id:" + id));
-//        patientRepository.delete(patient);
-//        model.addAttribute("patient", patientRepository.findAll());
-//        return "redirect:/patients";
-//    }
+    @GetMapping("/trainers/update/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model){
+        Trainer trainer = trainerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid trainer Id:" + id));
+        model.addAttribute("trainers", trainer);
+        return "trainers/trainerUpdate";
+    }
+
+    @PostMapping("/trainers/update/{id}")
+    public String updateTrainer(Trainer trainer){
+        trainerRepository.save(trainer);
+        return "redirect:/trainers";
+    }
+
+    @GetMapping("/trainers/delete/{id}")
+    public String deleteTrainer(@PathVariable("id") Long id, Model model) {
+        Trainer trainer = trainerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid trainer Id:" + id));
+        trainerRepository.delete(trainer);
+        model.addAttribute("trainer", trainerRepository.findAll());
+        return "redirect:/trainers";
+    }
 }
