@@ -9,10 +9,13 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 public class TrainerForm {
+
     @NotEmpty(message = "이름은 필수입니다.")
     private String name;
-    @NotEmpty(message = "등록일은 필수입니다.")
-    private String date;
-    @NotEmpty(message = "기간은 필수입니다.")
-    private String period;
+
+    @NotEmpty(message = "전문분야는 필수입니다.")
+    private String field;
+
+    @NotEmpty(message = "트레이닝시간은 필수입니다.")
+    private String time;
 }

@@ -4,8 +4,9 @@
 <body>
 <div class="container">
     <div th:replace="fragments/homeButton :: homeButton"/>
-    <form role="form" action="/board" method="post">
-        <div class="form-group">
+    <form role="form" th:action="@{/boards/update/{id}(id=${boards.id})}" th:object="${boards}"
+          method="post">
+        <div class="form-group" th:object="${reserves}">
             <label for="reserve">예약자</label>
             <select name="reserveId" id="reserve" class="form-control">
                 <option value="">예약자 선택</option>
@@ -13,7 +14,7 @@
                         th:value="${reserve.id}" th:text="${reserve.name}"/>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" th:object="${trainers}">
             <label for="trainer">트레이너</label>
             <select name="trainerId" id="trainer" class="form-control">
                 <option value="">트레이너 선택</option>
@@ -25,6 +26,5 @@
     </form>
     <br/>
     <div th:replace="fragments/footer :: footer"/>
-</div> <!-- /container -->
-</body>
+</div> <!-- /container --> </body>
 </html>

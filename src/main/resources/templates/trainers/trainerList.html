@@ -11,16 +11,24 @@
             <tr>
                 <th>#</th>
                 <th>이름</th>
-                <th>등록일</th>
-                <th>기간</th>
+                <th>전문분야</th>
+                <th>트레이닝시간</th>
+                <th>수정</th>
+                <th>삭제</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="trainer : ${trainers}">
                 <td th:text="${trainer.id}"></td>
                 <td th:text="${trainer.name}"></td>
-                <td th:text="${trainer.date}"></td>
-                <td th:text="${trainer.period}"></td>
+                <td th:text="${trainer.field}"></td>
+                <td th:text="${trainer.time}"></td>
+                <td>
+                    <a th:href="@{/trainers/update/{id}(id=${trainer.id})}" class="btn btn-primary" role="button">수정</a>
+                </td>
+                <td>
+                    <a th:href="@{/trainers/delete/{id}(id=${trainer.id})}" class="btn btn-primary" role="button">삭제</a>
+                </td>
             </tr>
             </tbody>
         </table>

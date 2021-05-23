@@ -20,22 +20,20 @@ public class Trainer {
     private Long id;
 
     private String name;
-    private String date;
-    private String period;
+    private String field;
+    private String time;
 
 
-//    @OneToMany(mappedBy = "patient")
-//    private List<Board> boards = new ArrayList<>();
-//
-//    public Patient() {
-//    }
-//
-//    @Builder
-//    public Patient(String name, String number, String pwd, String address, String email) {
-//        this.name = name;
-//        this.number = number;
-//        this.pwd = pwd;
-//        this.address = address;
-//        this.email = email;
-//    }
+    @OneToMany(mappedBy = "trainer")
+    private List<Board> boards = new ArrayList<>();
+
+    public Trainer() {
+    }
+
+    @Builder
+    public Trainer(String name, String field, String time) {
+        this.name = name;
+        this.field = field;
+        this.time = time;
+    }
 }

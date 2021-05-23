@@ -12,6 +12,9 @@ public class ReserveForm {
     @NotEmpty(message = "이름은 필수입니다.")
     private String name;
 
+    @NotEmpty(message = "등록기간은 필수입니다.")
+    private String period;
+
     @NotEmpty(message = "날짜는 필수입니다.")
     private String date;
 

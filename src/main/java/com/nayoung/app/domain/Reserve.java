@@ -19,9 +19,15 @@ public class Reserve {
     private Long id;
 
     private String name;
+    private String period;
     private String date;
     private String time;
 
-//    @OneToMany(mappedBy = "patient")
-//    private List<Board> boards = new ArrayList<>();
+    @OneToMany(mappedBy = "reserve")
+    private List<Board> boards = new ArrayList<>();
+
+    public Reserve() {
+    }
+
+
 }

@@ -1,14 +1,11 @@
 package com.nayoung.app.domain;
 
-import lombok.Builder;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @Entity
 @Getter
@@ -18,19 +15,27 @@ public class Board {
     @GeneratedValue
     private Long id;
 
-    private String question;
-    private String answer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Reserve reserve;
 
-//    @OneToMany(mappedBy = "board")
-//    private List<Board> boards = new ArrayList<>();
-//
-//    public void Board() {
-//    }
-//
-//    @Builder
-//    public void Board(String question, String answer) {
-//        this.question = question;
-//        this.answer = answer;
-//    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Trainer trainer;
+
+    public void setReserve(Reserve reserve) {
+        this.reserve = reserve;
+        this.reserve.getBoards().add(this);
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+        this.trainer.getBoards().add(this);
+    }
+
+    public static Board createBoard(Reserve reserve, Trainer... trainers) {
+        Board board = new Board();
+        board.setReserve(reserve);
+        Arrays.stream(trainers).forEach(board::setTrainer);
+        return board;
+    }
 }
 

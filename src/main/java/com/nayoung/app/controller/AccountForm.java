@@ -17,18 +17,24 @@ public class AccountForm {
 
     private Long id;
     private String username;
+    private String date;
+    private String sex;
+    private String phone;
+    private String userid;
     private String password;
     private String email;
-    private String age;
     private String role;
 
     @Builder
-    public AccountForm(Long id, String username, String password, String email, String age, String role) {
+    public AccountForm(Long id, String username, String date, String sex, String phone, String userid, String password, String email, String role) {
         this.id = id;
         this.username = username;
+        this.date = date;
+        this.sex = sex;
+        this.phone = phone;
+        this.userid = userid;
         this.password = password;
         this.email = email;
-        this.age = age;
         this.role = role;
     }
 
@@ -36,9 +42,12 @@ public class AccountForm {
         return Account.builder()
                 .id(id)
                 .username(username)
+                .date(date)
+                .sex(sex)
+                .phone(phone)
+                .userid(userid)
                 .password(new BCryptPasswordEncoder().encode(password))
                 .email(email)
-                .age(age)
                 .role(role)
                 .build();
     }

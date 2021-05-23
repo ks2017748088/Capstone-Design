@@ -18,6 +18,7 @@
         <p><a class="btn btn-lg btn-info" th:href="@{/loginUser}">회원가입</a>
         <p sec:authorize="isAnonymous()"><a class="btn btn-lg btn-info" th:href="@{/login}">로그인</a></p>
         <p sec:authorize="isAuthenticated()"><a class="btn btn-lg btn-info" th:href="@{/logout}">로그아웃</a></p>
+<!--        <p><a class="btn btn-lg btn-info" th:href="@{/logins}">회원조회</a>-->
     </div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>

@@ -1,11 +1,13 @@
 package com.nayoung.app.controller;
 
 import com.nayoung.app.domain.Reserve;
+import com.nayoung.app.domain.Trainer;
 import com.nayoung.app.repository.ReserveRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -35,6 +37,7 @@ public class ReserveController {
 
         Reserve reserve = new Reserve();
         reserve.setName(reserveForm.getName());
+        reserve.setPeriod(reserveForm.getPeriod());
         reserve.setDate(reserveForm.getDate());
         reserve.setTime(reserveForm.getTime());
         reserveRepository.save(reserve);
@@ -47,5 +50,26 @@ public class ReserveController {
         List<Reserve> reserves = reserveRepository.findAll();
         model.addAttribute("reserves", reserves);
         return "reserves/reserveList";
+    }
+
+    @GetMapping("/reserves/update/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model){
+        Reserve reserve = reserveRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid reserve Id:" + id));
+        model.addAttribute("reserves", reserve);
+        return "reserves/reserveUpdate";
+    }
+
+    @PostMapping("/reserves/update/{id}")
+    public String updateReserve(Reserve reserve){
+        reserveRepository.save(reserve);
+        return "redirect:/reserves";
+    }
+
+    @GetMapping("/reserves/delete/{id}")
+    public String deleteReserve(@PathVariable("id") Long id, Model model) {
+        Reserve reserve = reserveRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid reserve Id:" + id));
+        reserveRepository.delete(reserve);
+        model.addAttribute("reserve", reserveRepository.findAll());
+        return "redirect:/reserves";
     }
 }
