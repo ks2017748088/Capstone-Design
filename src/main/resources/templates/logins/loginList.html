@@ -14,7 +14,6 @@
                 <th>성별</th>
                 <th>전화번호</th>
                 <th>아이디</th>
-                <th>비밀번호</th>
                 <th>이메일</th>
                 <th>권한</th>
                 <th>수정</th>
@@ -22,21 +21,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="loginUser : ${loginUsers}">
+            <tr th:each="loginUser : ${userList}">
                 <td th:text="${loginUser.id}"></td>
                 <td th:text="${loginUser.username}"></td>
                 <td th:text="${loginUser.date}"></td>
                 <td th:text="${loginUser.sex}"></td>
                 <td th:text="${loginUser.phone}"></td>
                 <td th:text="${loginUser.userid}"></td>
-                <td th:text="${loginUser.password}"></td>
                 <td th:text="${loginUser.email}"></td>
                 <td th:text="${loginUser.role}"></td>
                 <td>
-                    <a th:href="@{/loginUsers/update/{id}(id=${login.id})}" class="btn btn-primary" role="button">수정</a>
+                    <a th:href="@{/userList/update/{id}(id=${loginUser.id})}" class="btn btn-primary" role="button">수정</a>
                 </td>
                 <td>
-                    <a th:href="@{/loginUsers/delete/{id}(id=${login.id})}" class="btn btn-primary" role="button">삭제</a>
+                    <a th:href="@{/userList/delete/{id}(id=${loginUser.id})}" class="btn btn-primary" role="button">삭제</a>
                 </td>
             </tr>
             </tbody>

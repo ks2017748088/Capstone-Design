@@ -17,13 +17,13 @@ public class LoginController {
         return "logins/login";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/logouts")
     public String logout(HttpServletRequest request, HttpServletResponse response){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if(authentication != null){
             new SecurityContextLogoutHandler().logout(request,response,authentication);
         }
-        return "redirect:/";
+        return  "redirect:/";
     }
 }

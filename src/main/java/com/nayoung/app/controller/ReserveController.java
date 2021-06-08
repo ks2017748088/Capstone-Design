@@ -1,7 +1,6 @@
 package com.nayoung.app.controller;
 
 import com.nayoung.app.domain.Reserve;
-import com.nayoung.app.domain.Trainer;
 import com.nayoung.app.repository.ReserveRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

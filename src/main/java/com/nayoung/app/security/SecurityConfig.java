@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() // csrf보안 토큰 disable처리
                 .authorizeRequests()
                 .antMatchers("/","/loginUser","/menu").permitAll()
-                .antMatchers("/logins/**").permitAll()
+                .antMatchers("/logins/loginForm").permitAll()
                 .antMatchers("/boards/**").access("hasRole('USER') or hasRole('MANAGER') or hasRole('ADMIN')")
                 .antMatchers("/trainers/**").access("hasRole('MANAGER') or hasRole('ADMIN')")
                 .antMatchers("/reserves/**").access("hasRole('USER') or hasRole('ADMIN')")
@@ -61,6 +61,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/manager").hasRole("MANAGER")
                 .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/loginUsers/list").hasRole("ADMIN")
+                .antMatchers("/userList/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().headers().frameOptions().disable()
                 .and()

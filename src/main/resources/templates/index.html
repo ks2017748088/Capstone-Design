@@ -8,18 +8,20 @@
 </head>
 
 <body>
+<div class="jumbotron">
 <div class="container">
     <div>
         <ul class="nav nav-pills pull-right">
             <li><a href="/menu">메뉴</a></li>
         </ul>
     </div>
-    <div class="jumbotron"><h1>헬스장 회원 관리 페이지</h1>
+    <div><h1>헬스장 회원 관리 페이지</h1>
         <p><a class="btn btn-lg btn-info" th:href="@{/loginUser}">회원가입</a>
+        <p><a class="btn btn-lg btn-info" href="/loginUsers/list">회원조회</a>
         <p sec:authorize="isAnonymous()"><a class="btn btn-lg btn-info" th:href="@{/login}">로그인</a></p>
-        <p sec:authorize="isAuthenticated()"><a class="btn btn-lg btn-info" th:href="@{/logout}">로그아웃</a></p>
-<!--        <p><a class="btn btn-lg btn-info" th:href="@{/logins}">회원조회</a>-->
+        <p sec:authorize="isAuthenticated()"><a class="btn btn-lg btn-info" th:href="@{/logouts}">로그아웃</a></p>
     </div>
+</div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
