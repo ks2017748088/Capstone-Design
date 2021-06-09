@@ -1,5 +1,6 @@
 package com.nayoung.app.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,8 +27,17 @@ public class Reserve {
     @OneToMany(mappedBy = "reserve")
     private List<Board> boards = new ArrayList<>();
 
-    public Reserve() {
+    @Builder
+    public Reserve(Long id, String name, String period, String date,String time) {
+        this.id = id;
+        this.name = name;
+        this.period = period;
+        this.date = date;
+        this. time = time;
     }
 
 
+    public Reserve() {
+
+    }
 }
